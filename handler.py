@@ -2,13 +2,15 @@ import json
 
 from jsonpath_ng.ext import parse
 
+FORWARD_KEY = '_forward'
+
 
 def handle(event, context):
     print("input:" + json.dumps(event))
 
     result = {}
 
-    forward = 'forward' in event
+    forward = FORWARD_KEY in event
 
     print('forward field from input enabled?: {}'.format(forward))
 
@@ -20,12 +22,15 @@ def handle(event, context):
                 matches = jsonpath_expr.find(event)
                 if matches and matches[0]:
                     result[field] = matches[0].value
+                continue
+
             if key.startswith('unescape_'):
                 field = key[9:]
                 result[field] = json.loads(event[key])
-            else:
-                if forward:
-                    result[key] = event[key]
+                continue
+
+            if forward and key != FORWARD_KEY:
+                result[key] = event[key]
         except:
             print('failed to process {}={}'.format(key, event[key]))
 
