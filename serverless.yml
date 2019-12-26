@@ -6,6 +6,8 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'eu-central-1'}
   logRetentionInDays: 3
+  memorySize: 128
+  timeout: 10
 
 functions:
   transform:
@@ -17,3 +19,7 @@ plugins:
 custom:
   pythonRequirements:
     dockerizePip: non-linux
+
+package:
+  exclude:
+    - node_modules/**
