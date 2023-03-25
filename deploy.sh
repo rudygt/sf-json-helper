@@ -1,3 +1,3 @@
 #! /bin/bash
 
-serverless deploy
+npx serverless deploy

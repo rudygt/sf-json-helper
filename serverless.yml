@@ -1,17 +1,21 @@
+frameworkVersion: '3'
+
 service: sf-json-helper
 
 provider:
   name: aws
-  runtime: python3.7
+  runtime: python3.9
+  architecture: arm64
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'eu-central-1'}
   logRetentionInDays: 3
   memorySize: 128
-  timeout: 10
+  timeout: 10  
 
 functions:
   transform:
     handler: handler.handle
+    architecture: arm64
 
 plugins:
   - serverless-python-requirements
@@ -19,7 +23,8 @@ plugins:
 custom:
   pythonRequirements:
     dockerizePip: non-linux
+    pythonBin: python3
 
 package:
-  exclude:
-    - node_modules/**
+  patterns:
+    - '!node_modules/**'

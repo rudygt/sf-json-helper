@@ -6,7 +6,7 @@ FORWARD_KEY = '_forward'
 
 
 def handle(event, context):
-    print("input:" + json.dumps(event))
+    print("input r:" + json.dumps(event))
 
     result = {}
 

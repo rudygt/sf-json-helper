@@ -1,3 +1,3 @@
 #! /bin/bash
 
-sls invoke local --docker -f transform --path event.json 
+npx serverless invoke local -f transform --path event.json 
