@@ -22,4 +22,4 @@ first step using the helper lambda and some json path expressions.
 
 *Execution Result*
 
-![execution](executionResult.PNG "Execution Result")
+![execution](execution.png "Execution Result")

@@ -3,6 +3,8 @@ helper lambda function for json to json transforms, useful to derive parameters 
 
 this lambda uses the python [jsonpath-ng](https://pypi.org/project/jsonpath-ng/) library to allow arbitrary json to json transforms from the input event and the lambda output. 
 
+![sample result](sample.png)
+
 ## Running Locally
 
 Docker is required to deploy (dockerized pip to build the package by https://www.npmjs.com/package/serverless-python-requirements?activeTab=readme)
