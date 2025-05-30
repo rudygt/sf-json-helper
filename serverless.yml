@@ -4,7 +4,7 @@ service: sf-json-helper
 
 provider:
   name: aws
-  runtime: python3.9
+  runtime: python3.13
   architecture: arm64
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'eu-central-1'}
@@ -23,7 +23,7 @@ plugins:
 custom:
   pythonRequirements:
     dockerizePip: non-linux
-    pythonBin: python3
+    pythonBin: python3.13
 
 package:
   patterns:
